@@ -1,0 +1,21 @@
+.statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.h2 {
+  font-family: 'roboto', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+    sans-serif;
+  font-size: xx-large;
+  color: #333;
+  font-weight: 500;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+  font-family: 'roboto', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+    sans-serif;
+  font-size: large;
+}

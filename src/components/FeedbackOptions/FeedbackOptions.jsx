@@ -2,13 +2,7 @@ import { Component } from 'react';
 import css from './FeedbackOptions.module.css';
 
 class FeedbackOptions extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      options: {},
-      onLeaveFeedback: {},
-    };
-  }
+  state = { good: 0, neutral: 0, bad: 0, total: 0, positivePercentage: 0 };
 
   handleCounter = event => {
     const { name } = event.target;

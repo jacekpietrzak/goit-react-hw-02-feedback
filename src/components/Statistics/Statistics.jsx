@@ -1,14 +1,9 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 
 class Statistics extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
-    // console.log(this.props);
     return (
       <section className={css.statistics}>
         <ul className={css.list}>
@@ -23,4 +18,11 @@ class Statistics extends Component {
   }
 }
 
+Statistics.propTypes = {
+  good: PropTypes.number,
+  bad: PropTypes.number,
+  neutral: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
+};
 export default Statistics;

@@ -67,16 +67,19 @@ class Feedback extends Component {
             Bad
           </button>
         </section>
-        <section className={css.stats}>
-          <h2 className={css.h2}>Statistics</h2>
-          <ul className={css.list}>
-            <li>Good: {this.state.good}</li>
-            <li>Neutral: {this.state.neutral}</li>
-            <li>Bad: {this.state.bad}</li>
-            <li>Total: {this.state.total} </li>
-            <li>Positive feedback: {this.state.positivePercentage}%</li>
-          </ul>
-        </section>
+
+        {this.state.total > 0 && (
+          <section className={css.stats}>
+            <h2 className={css.h2}>Statistics</h2>
+            <ul className={css.list}>
+              <li>Good: {this.state.good}</li>
+              <li>Neutral: {this.state.neutral}</li>
+              <li>Bad: {this.state.bad}</li>
+              <li>Total: {this.state.total} </li>
+              <li>Positive feedback: {this.state.positivePercentage}%</li>
+            </ul>
+          </section>
+        )}
       </section>
     );
   }

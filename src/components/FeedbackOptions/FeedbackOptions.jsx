@@ -1,43 +1,11 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
 class FeedbackOptions extends Component {
-  state = { good: 0, neutral: 0, bad: 0, total: 0, positivePercentage: 0 };
-
-  handleCounter = event => {
-    const { name } = event.target;
-    this.setState(prevState => {
-      return {
-        [name]: prevState[name] + 1,
-      };
-    }, this.handleSetStateCallback);
-  };
-
-  handleSetStateCallback = () => {
-    console.log(this.state);
-    this.countPositiveFeedbackPercentage();
-    this.countTotalFeedback();
-  };
-
-  countTotalFeedback = () => {
-    this.setState(() => {
-      return {
-        total: this.state.good + this.state.bad + this.state.neutral,
-      };
-    });
-  };
-
-  countPositiveFeedbackPercentage = () => {
-    this.setState(() => {
-      return {
-        positivePercentage: Math.round(
-          (this.state.good * 100) /
-            (this.state.good + this.state.bad + this.state.neutral)
-        ),
-      };
-    });
-  };
-
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <section className={css.buttons}>
@@ -45,7 +13,7 @@ class FeedbackOptions extends Component {
           className={(css.button, css.good)}
           type="button"
           name="good"
-          onClick={this.handleCounter}
+          onClick={this.props.onLeaveFeedback}
         >
           Good
         </button>
@@ -53,7 +21,7 @@ class FeedbackOptions extends Component {
           className={(css.button, css.neutral)}
           type="button"
           name="neutral"
-          onClick={this.handleCounter}
+          onClick={this.props.onLeaveFeedback}
         >
           Neutral
         </button>
@@ -61,7 +29,7 @@ class FeedbackOptions extends Component {
           className={(css.button, css.bad)}
           type="button"
           name="bad"
-          onClick={this.handleCounter}
+          onClick={this.props.onLeaveFeedback}
         >
           Bad
         </button>
@@ -69,5 +37,9 @@ class FeedbackOptions extends Component {
     );
   }
 }
+
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func,
+};
 
 export default FeedbackOptions;

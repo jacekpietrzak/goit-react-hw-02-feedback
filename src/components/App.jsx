@@ -44,8 +44,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="h1">React homework 02 Feedback</h1>
-
         <Section title="Please leave feedback">
           <FeedbackOptions onLeaveFeedback={this.handleCounter} />
         </Section>
